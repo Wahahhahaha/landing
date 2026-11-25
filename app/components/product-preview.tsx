@@ -22,7 +22,7 @@ import {
   Circle,
 } from "@phosphor-icons/react/dist/ssr";
 
-export type ViewKey = "penjualan" | "inventori" | "akunting" | "kasbank" | "pembelian" | "laporan";
+export type ViewKey = "penjualan" | "pembelian" | "inventori" | "produksi" | "akunting" | "pos" | "timproyek" | "laporan" | "kasbank";
 
 const views: Record<
   ViewKey,
@@ -105,6 +105,54 @@ const views: Record<
       { a: "Perlengkapan dapur", status: "proc", b: "", c: "Rp 2,8 jt" },
     ],
   },
+  produksi: {
+    label: "Produksi",
+    title: "Progres Produksi",
+    stats: [
+      { name: "Produksi hari ini", value: "1.240 pcs", note: "Dari target 1.500 pcs" },
+      { name: "Dalam proses", value: "8 batch", note: "2 menunggu bahan" },
+      { name: "Selesai", value: "6 batch", note: "↑ 2 batch dari kemarin" },
+    ],
+    cols: ["Batch", "Status", "Target"],
+    rows: [
+      { a: "Kopi Arabika 250g", status: "proc", b: "", c: "400 pcs" },
+      { a: "Kemasan Gift Set", status: "done", b: "", c: "120 pcs" },
+      { a: "Syrup Vanila 1L", status: "proc", b: "", c: "200 pcs" },
+      { a: "Paket Hampers", status: "done", b: "", c: "80 pcs" },
+    ],
+  },
+  pos: {
+    label: "POS & restoran",
+    title: "Kasir & Restoran",
+    stats: [
+      { name: "Pesanan hari ini", value: "186", note: "12 meja aktif" },
+      { name: "Omzet kasir", value: "Rp 9,4 jt", note: "↑ 6,4% dari kemarin" },
+      { name: "Pesanan diproses", value: "14", note: "Perlu ditindaklanjuti" },
+    ],
+    cols: ["Pesanan", "Status", "Nilai"],
+    rows: [
+      { a: "Meja 04 · Paket Nasi", status: "proc", b: "", c: "Rp 145 rb" },
+      { a: "Take Away · Kopi Susu", status: "done", b: "", c: "Rp 32 rb" },
+      { a: "Meja 11 · Katering", status: "done", b: "", c: "Rp 1,2 jt" },
+      { a: "Delivery · Paket Ayam", status: "proc", b: "", c: "Rp 210 rb" },
+    ],
+  },
+  timproyek: {
+    label: "Tim & proyek",
+    title: "Tim & Proyek",
+    stats: [
+      { name: "Anggota aktif", value: "24", note: "3 tim terdaftar" },
+      { name: "Proyek berjalan", value: "7", note: "2 deadline minggu ini" },
+      { name: "Tugas selesai", value: "86%", note: "↑ 4% dari minggu lalu" },
+    ],
+    cols: ["Proyek", "Status", "Penanggung jawab"],
+    rows: [
+      { a: "Peluncuran cabang baru", status: "proc", b: "", c: "Tim Operasional" },
+      { a: "Pembaruan sistem kasir", status: "done", b: "", c: "Tim IT" },
+      { a: "Kampanye bulanan", status: "proc", b: "", c: "Tim Marketing" },
+      { a: "Pelatihan stok", status: "done", b: "", c: "Tim Gudang" },
+    ],
+  },
   laporan: {
     label: "Laporan",
     title: "Ringkasan Laporan",
@@ -141,6 +189,9 @@ const navItems: { key: ViewKey; icon: typeof Storefront }[] = [
   { key: "akunting", icon: Calculator },
   { key: "kasbank", icon: Wallet },
   { key: "pembelian", icon: ShoppingCart },
+  { key: "produksi", icon: ArrowsClockwise },
+  { key: "pos", icon: SquaresFour },
+  { key: "timproyek", icon: CalendarBlank },
   { key: "laporan", icon: FileText },
 ];
 
